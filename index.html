@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Student Marksheet Generator - calculate total, percentage, grade and result.">
+  <title>Marksheet Generator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="hero">
+      <div>
+        <span class="eyebrow">Student Project</span>
+        <h1>Marksheet Generator</h1>
+        <p>Enter student details and marks to generate a clean, printable marksheet.</p>
+      </div>
+      <button id="themeToggle" class="icon-btn" type="button" aria-label="Toggle theme">☾</button>
+    </header>
+
+    <main class="layout">
+      <section class="card form-card">
+        <div class="section-heading">
+          <div>
+            <span class="step">01</span>
+            <h2>Student Details</h2>
+          </div>
+          <span class="status" id="status">Ready</span>
+        </div>
+
+        <form id="marksheetForm">
+          <div class="grid two">
+            <label>
+              Student Name
+              <input id="studentName" type="text" placeholder="e.g. Hardik Goyel" required>
+            </label>
+            <label>
+              Roll Number
+              <input id="rollNumber" type="text" placeholder="e.g. 24" required>
+            </label>
+          </div>
+
+          <div class="section-heading compact">
+            <div>
+              <span class="step">02</span>
+              <h2>Subject Marks</h2>
+            </div>
+            <span class="hint">0–100</span>
+          </div>
+
+          <div id="subjects" class="subjects"></div>
+
+          <div class="actions">
+            <button class="primary" type="submit">Generate Marksheet</button>
+            <button class="secondary" id="clearBtn" type="button">Clear</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="card result-card" id="resultCard">
+        <div class="empty-state" id="emptyState">
+          <div class="empty-icon">✓</div>
+          <h2>Your marksheet will appear here</h2>
+          <p>Fill in the student details and five subject marks, then select <strong>Generate Marksheet</strong>.</p>
+        </div>
+
+        <div id="result" class="result hidden">
+          <div class="result-top">
+            <div>
+              <span class="eyebrow">Academic Result</span>
+              <h2 id="resultName">Student Name</h2>
+              <p>Roll No. <span id="resultRoll">—</span></p>
+            </div>
+            <div class="grade-badge" id="gradeBadge">A</div>
+          </div>
+
+          <div class="stats">
+            <div class="stat"><span>Total</span><strong id="total">0</strong><small>/ 500</small></div>
+            <div class="stat"><span>Percentage</span><strong id="percentage">0%</strong></div>
+            <div class="stat"><span>Result</span><strong id="resultStatus">PASS</strong></div>
+          </div>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Subject</th>
+                  <th>Marks</th>
+                  <th>Performance</th>
+                </tr>
+              </thead>
+              <tbody id="resultTable"></tbody>
+            </table>
+          </div>
+
+          <div class="result-footer">
+            <p id="remark">Keep up the good work.</p>
+            <button id="printBtn" class="secondary" type="button">Print Marksheet</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>Marksheet Generator • Built with HTML, CSS & JavaScript</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
